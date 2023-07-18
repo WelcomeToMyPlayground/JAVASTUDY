@@ -7,7 +7,7 @@ public class Car3 {
 	String company; // 제조회사
 	int speed; // 속도
 	int cost; // 가격
-	String color; // 색상
+	String color; // 색상..
 
 	// 생성자1
 	Car3() {
