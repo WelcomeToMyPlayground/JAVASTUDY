@@ -2,55 +2,74 @@ package chap09.sec01;
 
 import chap09.sec01.Car.OldCar;
 
-// Car 클래스
+// 바깥 -> Car 클래스
 public class Car {
 
-	// 필드
 	String company; // 제조회사
 	int speed; // 속도
 	int cost; // 가격
-	String color; // 색상
+	static String color; // 색상
 
-	// 생성자1
 	Car() {
-		// 기본 생성자
+		System.out.println("Car 호출");
 	}
 
-	// 생성자2
-	Car(String company, int cost) { // 매개변수 2개 생성자
-		this.company = company;
-		this.cost = cost;
-	}
+	// 중첩 클래스 (인스턴스 멤버 클래스)
+	class OldCar { 
 
-	// 메소드1
-	void speedUp(int speed) { // 매개변수 1개, void라서 리턴하지 않는 메소드
-		this.speed += speed;
-	}
-
-	void OldSpeed() {
-		// Car 클래스 내부에서는 OldCar 객체 바로 생성 가능함
-		OldCar old = new OldCar();
-		old.speed = 50;
-	}
-
-// OldCar 클래스
-	class OldCar {
-		// 필드
 		int speed; // 속도
-		int cost; // 가격
+		int cost; // 가격 
 
-		// 메소드 (매개변수 1개, void라서 리턴값 X)
+		OldCar() {
+			System.out.println("OldCar 호출");
+		}
+
 		void speedUp(int speed) {
 			this.speed += speed;
 		}
+		 
+		void carCall() {  
+			// 인스턴스 메소드에서 바깥 클래스의 필드와 메소드 접근 가능함 (정적x)
+			company="현대";
+			stop();
+		}
 	}
-}
 
-	class Car2 {
-
-		Car car = new Car("현대",300000);
-		Car.OldCar oldcar = car.new OldCar();
+	
+	// 정적 멤버 클래스 
+	static class Truck {
 		
-		// car.speedUp(50);  // 왜 오류 발생 ? 
-
+		static int speed;
+		int cost;
+		
+		Truck() {
+			System.out.println("Truck 호출");
+		}
+		
+		void speedUp(int speed) {
+			this.speed +=speed;
+		}
+		
+		void carCall() {
+			//정적 클래스의 메소드에서
+			//바깥 클래스의 필드와 메소드 접근 안됨
+			// company="현대";
+			// stop();
+			color="빨강";
+			stop2();
+		}
+	}
+	
+	void speedUp(int speed) { // 매개변수 1개 리턴x 메소드
+		this.speed += speed;
+	}
+	
+	void stop() {
+		System.out.println("Car 멈춤");
+	}
+	
+	static void stop2() {
+		System.out.println("Car 멈춤");
+	}
+	
 }
