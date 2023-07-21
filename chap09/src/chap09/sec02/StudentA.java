@@ -4,6 +4,7 @@ public class StudentA {
 	
 	// 익명 객체 생성
 	Person person = new Person() {
+		
 		void work() {
 			System.out.println("등교합니다.");
 		}
