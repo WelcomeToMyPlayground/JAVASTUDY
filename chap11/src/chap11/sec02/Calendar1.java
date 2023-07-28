@@ -18,7 +18,7 @@ public class Calendar1 {
 		
 		// get으로 정보를 끌어왔다가 set을 통해 정보를 변경하는 거임
 		
-		start.set(year, month - 1, 1);
+		start.set(year,  month - 1, 1);
 		// 시작 월 세팅, month-1을 해줘야 정확한 월을 인식함, 날짜는 1일로 세팅
 		end.set(year, month, 1);
 		// 끝나는 월 세팅, 입력한 다음 달의 1일로 세팅하고
