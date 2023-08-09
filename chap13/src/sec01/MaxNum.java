@@ -1,4 +1,4 @@
-package chap13;
+package sec01;
 
 import java.util.List;
 import java.util.Scanner;

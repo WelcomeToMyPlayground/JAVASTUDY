@@ -1,4 +1,4 @@
-package chap13;
+package sec01;
 
 public class Gesipan {
 	int number; // 게시판 글 번호
